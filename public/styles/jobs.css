@@ -1,0 +1,59 @@
+main{
+    display: flex;
+    margin: 2rem 8rem;
+}
+
+h3{
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #555555;
+}
+
+h2{
+    margin-top: 0.5rem;
+}
+
+#filters{
+    width: 25%;
+    padding: 1rem;
+    padding-left: 2rem;
+    background-color: #ffffff;
+    margin-right: 1rem;
+    box-shadow: var(--container-box-shadow-1);
+    border-radius: var(--container-border-radius-1)
+}
+
+#filters h2{
+    font-size: 1.1rem;
+    
+}
+
+#jobs{
+    width: 75%;
+    background-color: #ffffff;
+    margin-left: 1rem;
+    padding: 1rem 4rem 2rem 3rem;
+    box-shadow: var(--container-box-shadow-1);
+    border-radius: var(--container-border-radius-1)
+}
+
+.jobs{
+    box-shadow: var(--container-box-shadow-2);
+    background-color: #eff6fc;
+    margin-bottom: 2rem;
+}
+
+.job-details{
+    padding: 1.5rem;
+}
+
+.job-summary{
+    display: flex;
+    padding: 1rem 0;
+    background-color: #BBDEFB;
+    object-fit: fill;
+}
+
+.summary-item{
+    margin: 0 1rem;
+}

@@ -1,0 +1,41 @@
+#main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #E3F2FD;
+}
+
+#logo img{
+    width: 12rem;
+}
+
+.nav-items{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-item{
+    margin: auto 1rem;
+}
+
+.nav-item button {
+    margin: 0;
+}
+
+.nav-item form{
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#logout{
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+}
+

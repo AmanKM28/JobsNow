@@ -1,0 +1,39 @@
+<%-include('../shared/includes/head')%>
+<link rel="stylesheet" href="/styles/auth.css">
+<script src="/scripts/login-validation.js" defer></script>
+    <title>Login</title>
+</head>
+<body>
+    <%- include('../shared/includes/header')%>
+    <main>
+        <div class="illustration">
+            <img src="images/login-illustration.png" alt="">
+        </div>
+        <div id="login-form" class="form-container">
+            <h1>Login</h1>
+            <p>Find the job made for you</p>
+            <form action="/login" method="POST">
+                <div class="input-container">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" value="<%=inputData.email%>" <%if(!inputData.errorStatus.isEmailValid){%> class="input-error" <%}%>>
+                    <%if(!inputData.errorStatus.isEmailValid){%>
+                        <p id="error">Enter a valid email</p>
+                    <%}%>
+                    <%if(!inputData.emailExists){%>
+                        <p id="error">User with this email does not exist</p>
+                    <%}%>
+                </div>
+                <div class="input-container">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password"value="<%=inputData.password%>" <%if(!inputData.errorStatus.isPasswordValid){%> class="input-error" <%}%> >
+                    <%if(!inputData.errorStatus.isPasswordValid){%>
+                        <p id="error">Incorrect Password</p>
+                    <%}%>
+                </div>
+                <button class="btn">Login</button>
+            </form>
+        </div>
+        
+    </main>
+</body>
+</html>

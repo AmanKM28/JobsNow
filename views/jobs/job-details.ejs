@@ -1,0 +1,76 @@
+<%-include('../shared/includes/head')%>
+<title>Jobs</title>
+<link rel="stylesheet" href="/styles/job-details.css">
+<script src="https://kit.fontawesome.com/0ef15d1b1c.js" crossorigin="anonymous"></script>
+</head>
+<html>
+<%-include('../shared/includes/header')%>
+<main>
+    <section id="job-details">
+        <div id="job-header">
+            <h1><%=job.jobTitle%></h1>
+            <div id="info">
+                <span><i class="fa-sharp fa-solid fa-building"></i> <%=job.companyName%></span>
+                <span><i class="fa-sharp fa-solid fa-location-dot"></i> <%=job.address%></span>
+            </div>
+            <div id="apply">
+                <%if(locals.uid){%>
+                    <form action="/jobs/<%=job._id%>/apply" method="POST">
+                        <button class="btn<%=hasApplied?' disabled':''%>" <%if(hasApplied){ %>disabled<% }%>>
+                            <%if(!hasApplied){%>
+                                Apply
+                            <%}else{%>
+                                Applied <i class="fa-sharp fa-solid fa-check"></i>
+                            <%}%>
+                        </button>
+                        <%if(isProfileComplete==false){%>
+                            <p class="error">Please complete your profile first</p>
+                        <%}%>
+                    </form>
+                <%}else{%>
+                    <a href="/login">
+                        <button class="btn">Apply</button>
+                    </a>
+                <%}%>
+                <span>
+                    <%if(job.numberOfApplicants==0){%> 
+                       No candidate
+                    <%}else if(job.numberOfApplicants==1){%>
+                        1 candidate
+                    <%}else{%>
+                        <i class="fa-solid fa-user"></i> <%=job.numberOfApplicants%> candidates
+                    <%}%>
+                        applied to this job
+                </span>
+            </div>
+
+        </div>
+        <div id="job-description">
+            <h2>Description</h2>
+            <p><%-job.jobDescription.replace(/\n/g, '<br>')%></p>
+        </div>
+        <div id="job-summary">
+            <h2>Summary</h2>
+            <%-include('includes/summary-table')%>
+        </div>
+    </section>
+    <section id="more-details">
+        <h2>More Details</h2>
+            <div>
+                <h3>Email Address</h3>
+                <p><%=job.email%></p>
+
+            </div>
+            <div>
+
+                <h3>Job Posted</h3>
+                <p><%=job.timeFromNow%></p>
+            </div>
+            <div>
+                
+                <h3>Last Date</h3>
+                <p><%=job.localizedLastDate%></p>
+            </div>
+    </section>
+</main>
+</html>

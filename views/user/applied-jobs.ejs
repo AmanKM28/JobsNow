@@ -1,0 +1,48 @@
+<%-include('../shared/includes/head')%>
+<link rel="stylesheet" href="/styles/user/applied-jobs.css">
+<script src="https://kit.fontawesome.com/0ef15d1b1c.js" crossorigin="anonymous"></script>
+<body>
+    <%-include('../shared/includes/header')%>
+    <main>
+        <h2>Applied Jobs</h2>
+        <section id="applications">
+            <%if(!appliedJobs || appliedJobs.length===0){%>
+                <p>Seems like you haven't applied to any job.</p>
+            <%}else{%>
+            <article class="header">
+                <table>
+                    <tr>
+                        <td class="job-title">Job Title</td>
+                        <td class="company">Company</td>
+                        <td class="salary">Salary (USD)</td>
+                        <td class="applied-on">Date applied</td>
+                        <td class="job-actions">Actions</td>
+                    </tr>
+                </table>
+            </article>
+            <table class="job-applications">
+                <%for(const appliedJob of appliedJobs){%>
+                    <tr>
+                        <td class="job-title"><%=appliedJob.jobTitle%> </td>
+                        <td class="company"><%=appliedJob.companyName%></td>
+                        <td class="salary"><%=appliedJob.salary%></td>
+                        <td class="applied-on"><%=appliedJob.dateApplied%></td>
+                        <td class="job-actions">
+                            <div id="actions">
+                                <a href="/jobs/<%=appliedJob._id.toString()%>">
+                                    <button class="btn">View</button>
+                                </a>
+                                <form action="/jobs/<%=appliedJob._id.toString()%>/withdraw" method="POST" id="delete-job">
+                                    <button class="btn btn-red">Withdraw</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                <%}%>
+                
+            </table>
+            <%}%>
+        </section>
+    </main>
+</body>
+</html>

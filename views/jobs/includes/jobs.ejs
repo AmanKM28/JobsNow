@@ -1,0 +1,20 @@
+<section id="jobs">
+    <h1>Latest Jobs</h1>
+    <%for(const job of jobs){%>
+    <a href="/jobs/<%=job._id.toString()%>">
+    <article class="jobs">
+        <div class="job-details">
+            <h3><%=job.companyName%></h3>
+            <h2><%=job.jobTitle%></h2>
+            <p><%=job.jobDescription%></p>
+        </div>
+        <div class="job-summary">
+            <div class="summary-item"><i class="fa-solid fa-industry"></i> <%=job.industry%></div>
+            <div class="summary-item"><i class="fa-sharp fa-solid fa-briefcase"></i> <%=job.jobType%></div>
+            <div class="summary-item"><i class="fa-sharp fa-solid fa-money-check-dollar"></i> $<%=job.salary%></div>
+            <div class="summary-item"><i class="fa-solid fa-clock"></i> <%=job.timeFromNow%></div>
+        </div>
+    </article>
+    </a>
+    <%}%>
+</section>
